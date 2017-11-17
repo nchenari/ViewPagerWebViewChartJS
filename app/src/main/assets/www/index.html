@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html lang="en" class="no-js" ng-app='ChartApp'>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>ChartJS with AngularJS Example Project</title>
+  <meta name="description" content="ChartJS with AngularJS Example Project">
+  <meta name="author" content="Nima Chenari">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/main.css">
+
+  <!-- AngularJS -->
+  <script src="lib/angular.min.js"></script>
+
+  <!-- ChartJS and AngularJS based libraries-->
+  <script src="lib/Chart.js"></script>
+  <script src="lib/angular-chart.js"></script>
+  <!-- AngularJS Module -->
+  <script src="lib/tc-angular-chartjs.js"></script>
+
+  <!-- Make HTML5 work in WebView -->
+  <script src="lib/modernizr-2.8.3.min.js"></script>
+
+  <!-- My App -->
+  <script src="src/app.js"></script>
+</head>
+<body>
+    <!-- Charts -->
+    <div class="wrapper">
+        <header>
+            <div class="container clearfix">
+                <h1>Session Summary: <span>August 26, 2015 10:14PM</span></h1>
+                <input type="button" value="Say Hello" onClick="showAndroidToast('Hello Android!')" />
+                <input type="button" value="Say Goodbye" onClick="showAndroidAlternativeToast('Goodbye Android!')" />
+            </div>
+        </header>
+        <div class="container clearfix">
+            <div class="third widget doughnut"
+                 ng-controller="RTChartCtrl">
+                <h3>Individual Stimuli Reaction Time Comparisons</h3>
+                <div class="canvas_container">
+                    <canvas
+                            tc-chartjs-doughnut
+                            chart-data="data"
+                            chart-options="options">
+                    </canvas>
+                </div>
+            </div>
+            <div class="third widget bar"
+                 ng-controller="MSIChartCtrl">
+                <h3>Bisensory and Trisensory MSI Comparisons</h3>
+                <div class="canvas_container">
+                    <canvas
+                            tc-chartjs-bar
+                            chart-data="data"
+                            chart-options="options">
+                    </canvas>
+                </div>
+            </div>
+            <div class="third widget line"
+                 ng-controller="ProbChartCtrl">
+                <h3>Bisensory and Trisensory MSI Comparisons</h3>
+                <div class="canvas_container">
+                    <canvas
+                            tc-chartjs-line
+                            chart-data="data"
+                            chart-options="options">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+        <div class="push"></div>
+    </div>
+
+    <!-- end of application content -->
+    <!-- script for webview interface -->
+    <script type="text/javascript">
+        function showAndroidToast(toast) {
+            Android.showToast(toast);
+        }
+
+        function showAndroidAlternativeToast(toast) {
+            Android.showAlternativeToast(toast);
+        }
+    </script>
+</body>
+</html>
